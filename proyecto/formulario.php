@@ -34,7 +34,7 @@ $conexion = null;
         </tr>
         <?php foreach ($contactos as $contacto): ?>
         <tr>
-            <td><?php echo $contacto['ind']; ?></td>
+            <td><?php echo $contacto['id']; ?></td>
             <td><?php echo $contacto['nombre']; ?></td>
             <td><?php echo $contacto['numero']; ?></td>
             <td><?php echo $contacto['correo']; ?></td>
