@@ -13,11 +13,11 @@
         <br>
         <label for=""> Telefono</label>
         <br>
-        <input type="text" name="numero" placeholder="Numero de telefono">
+        <input type="text" name="numero" placeholder="Numero de telefono" requiere>
         <br>
         <label for="">Email.</label>
         <br>
-        <input type="email" name="correo" placeholder="Su correo">
+        <input type="email" name="correo" placeholder="Su correo" requiere>
         <br>
         <input type="submit" value="Crear">
     </form>
