@@ -19,7 +19,29 @@
 CREATE DATABASE IF NOT EXISTS `db_contactos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `db_contactos`;
 
+-- Volcando estructura para tabla db_contactos.contactos
+CREATE TABLE IF NOT EXISTS `contactos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` text,
+  `numero` text,
+  `correo` text,
+  `id_usuario` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `contactos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 -- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla db_contactos.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` text,
+  `numero` text,
+  `correo` text,
+  `contrasenia` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- La exportación de datos fue deseleccionada.
 
