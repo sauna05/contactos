@@ -8,10 +8,10 @@ if(!isset($_SESSION['id_usuario'])){
     exit;
 }
 
-// Obtener el ID del usuario que ha iniciado sesión
+
 $id_usuario = $_SESSION['id_usuario'];
 
-// Verificar si se ha proporcionado un ID de contacto válido
+
 if(isset($_GET['ind'])) {
     $ind = $_GET['ind'];
 } else {
@@ -27,7 +27,7 @@ $stmt_delete->bindParam(':id_usuario', $id_usuario);
 $stmt_delete->bindParam(':ind', $ind);
 $stmt_delete->execute();
 echo("se elimino el contacto");
-// Redirigir de vuelta a la lista de contactos después de la eliminación
+
 header('Location: formulario.php');
 exit;
 ?>

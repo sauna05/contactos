@@ -8,7 +8,7 @@ if(!isset($_SESSION['id_usuario'])){
     exit;
 }
 
-// Obtener el ID del usuario que ha iniciado sesión
+
 $id_usuario = $_SESSION['id_usuario'];
 
 // Consultar los contactos asociados con el usuario
