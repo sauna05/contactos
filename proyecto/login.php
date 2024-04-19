@@ -4,34 +4,29 @@ include('conexion.php');
 
 session_start();
 
-
+//validar que se envie la informacion por el metodo post
 if($_SERVER['REQUEST_METHOD']=="POST"){
     $correo=$_POST["correo"];
     $contrasenia=$_POST["contrasenia"];
     
-    $sql="SELECT * FROM usuarios WHERE correo = :correo AND contrasenia = :contrasenia";
+    $sql="SELECT id FROM usuarios WHERE correo = :correo AND contrasenia = :contrasenia";
     $stm=$conexion->prepare($sql);
     $stm->bindParam(':correo',$correo);
     $stm->bindParam(':contrasenia',$contrasenia);
 
     $stm->execute();
-    if($stm->rowCount() >0){
-
-        $id_usuario=1;
-        
-        $_SESSION['id_usuario']=$id_usuario;
-        header('Location:formulario.php');
-        exit;
-    }else{
-        echo("Correo electronico o contraseña incorrectos");
-    }
+    $usuario = $stm->fetch(PDO::FETCH_ASSOC);
     
+    if($usuario){
+        $_SESSION['id_usuario'] = $usuario['id'];
+        header('Location: formulario.php');
+        exit;
+    
+    } else {
+        echo "Correo electrónico o contraseña incorrectos";
+    }
 }
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +39,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     <h2>Login</h2>
     <form  method="post"> 
         <label for="correo">Usuario</label><br>
-        <input type="text" name="correo" placeholder="Ingrese su usuario" required><br>
+        <input type="text" name="correo" placeholder="Ingrese su correo" required><br>
         <label for="contrasenia">Contraseña</label><br>
         <input type="password" name="contrasenia" placeholder="Ingrese su contraseña" required><br>
         <input type="submit" value="Iniciar sesión"><br>

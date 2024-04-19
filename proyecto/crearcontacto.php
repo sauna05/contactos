@@ -8,16 +8,17 @@
 </head>
 <body>
     <form action="insert_contacto.php" method="post">
+        <!-- hacer lo de eliminar editar cerrar session-->
         <label for=""> Nombre</label><br>
         <input type="text" name="nombre" placeholder="Nombre" require>
         <br>
         <label for=""> Telefono</label>
         <br>
-        <input type="text" name="numero" placeholder="Numero de telefono" requiere>
+        <input type="text" name="numero" placeholder="Numero de telefono">
         <br>
         <label for="">Email.</label>
         <br>
-        <input type="email" name="correo" placeholder="Su correo" requiere>
+        <input type="email" name="correo" placeholder="Su correo">
         <br>
         <input type="submit" value="Crear">
     </form>
