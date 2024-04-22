@@ -26,7 +26,8 @@ $stmt_delete = $conexion->prepare($sql_delete);
 $stmt_delete->bindParam(':id_usuario', $id_usuario);
 $stmt_delete->bindParam(':ind', $ind);
 $stmt_delete->execute();
-echo("se elimino el contacto");
+
+
 
 header('Location: formulario.php');
 exit;

@@ -38,12 +38,12 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 <body>
     <h2>Login</h2>
     <form  method="post"> 
-        <label for="correo">Usuario</label><br>
+        <label for="correo">Correo</label><br>
         <input type="text" name="correo" placeholder="Ingrese su correo" required><br>
         <label for="contrasenia">Contraseña</label><br>
         <input type="password" name="contrasenia" placeholder="Ingrese su contraseña" required><br>
         <input type="submit" value="Iniciar sesión"><br>
-        <a href="crear_usuario.php">¿No tienes una cuenta?</a><br>
+        <a href="crear_usuario.php">!Crea tu cuenta ¡</a><br>
       
     </form>
 </body>

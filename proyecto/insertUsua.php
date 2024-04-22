@@ -17,7 +17,7 @@ $stm->bindParam(':contrasenia', $contrasenia);
 try {
     $stm->execute();
     echo "<script>alert ('Usuario creado con éxito, agregado exitosamente.');</script>";
-    header('Location: login.php');
+    header('Location: formulario.php');
    
 } catch (PDOException $e) {
     echo "Error al agregar usuario: " . $e->getMessage();
