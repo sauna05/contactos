@@ -16,14 +16,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     $stm->execute();
     $usuario = $stm->fetch(PDO::FETCH_ASSOC);
-    
     if($usuario){
         $_SESSION['id_usuario'] = $usuario['id'];
         header('Location: formulario.php');
         exit;
     
     } else {
-        echo "Correo electrónico o contraseña incorrectos";
+        echo "Correo electrónico o contraseña incorrectos.  Si no estás registrado, <a href='crear_usuario.php'>regístrate aquí</a>";
     }
 }
 ?>
