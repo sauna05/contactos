@@ -5,9 +5,9 @@ include("conexion.php");
 // Verificar si el usuario ha iniciado sesión
 if(!isset($_SESSION['id_usuario'])){
     header('Location: login.php');
-    exit;
-}
+    exit();
 
+}
 
 $id_usuario = $_SESSION['id_usuario'];
 
