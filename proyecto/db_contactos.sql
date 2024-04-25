@@ -21,12 +21,12 @@ USE `db_contactos`;
 
 -- Volcando estructura para tabla db_contactos.contactos
 CREATE TABLE IF NOT EXISTS `contactos` (
-  `ind` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` text,
   `numero` text,
   `correo` text,
   `id_usuario` int DEFAULT NULL,
-  PRIMARY KEY (`ind`),
+  PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `contactos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `correo` text,
   `contrasenia` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- La exportación de datos fue deseleccionada.
 

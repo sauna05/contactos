@@ -1,6 +1,5 @@
 <?php
 include('conexion.php');
-//estayles en wpf general
 
 $nombre = $_POST["nombre"];
 $numero = $_POST["numero"];
@@ -15,8 +14,6 @@ $stm->bindParam(':numero', $numero);
 $stm->bindParam(':correo', $correo);
 $stm->bindParam(':contrasenia', $contrasenia);
 
-/*validar para quye no se repitan los usuarios
- */
 
 $stmvalidar="SELECT COUNT(*) as count FROM usuarios WHERE correo = :correo";
 $stmvalidar=$conexion->prepare($stmvalidar);
@@ -39,5 +36,6 @@ else{
     }
 
 }
+
 
 ?>
