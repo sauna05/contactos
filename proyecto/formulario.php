@@ -5,10 +5,10 @@ include("conexion.php");
 // Verificar si el usuario ha iniciado sesión
 if(!isset($_SESSION['id_usuario'])){
     header('Location: login.php');
-    exit;
+    exit();
+
 }
 
-// Obtener el ID del usuario que ha iniciado sesión
 $id_usuario = $_SESSION['id_usuario'];
 
 // Consultar los contactos asociados con el usuario
@@ -32,6 +32,7 @@ $conexion = null;
 <body>
     <!-- Lista de contactos -->
     <h1>Contactos Registrados</h1>
+
     <table>
         <tr>
             <th>Id</th>
@@ -58,22 +59,11 @@ $conexion = null;
     </table>
 
     <br/>
-    <style>
-        /* Estilos para el botón */
-        button {
-            width: 110px; /* Ancho del botón */
-            height: 30px; /* Altura del botón */
-            color: blue;
-            background-color: blue;
-            border-radius: 10px;
-        }
-        button a {
-        color: white; /* Color del enlace dentro del botón */
-        text-decoration: none; /* Quitar subrayado del enlace */
-    }
-    </style>
-
-    <button type="button"><a href="cerrar.php">Cerrar sesión</a></button>
+    <a href="crearcontacto.php">Agregar nuevo contacto</a> 
+    <br>
+    <a href="cerrar.php"> cerrar session</a>
+    <br>
+    <a href="bloquear.php">bloquear la session</a>
 
     
     

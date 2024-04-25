@@ -16,7 +16,7 @@ if(isset($_GET['ind'])) {
     $ind = $_GET['ind'];
 } else {
     // Redirigir si no se proporciona un ID válido
-    header('Location: listarcontactos.php');
+    header('Location: formulario.php');
     exit;
 }
 
