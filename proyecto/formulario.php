@@ -6,7 +6,6 @@ include("conexion.php");
 if(!isset($_SESSION['id_usuario'])){
     header('Location: login.php');
     exit();
-
 }
 
 $id_usuario = $_SESSION['id_usuario'];
@@ -33,42 +32,37 @@ $conexion = null;
     <!-- Lista de contactos -->
     <h1>Contactos Registrados</h1>
 
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Telefono</th>
-            <th>Correo</th>           
-            <th></th>
-        </tr>
-        <?php foreach ($contactos as $contacto): ?>
-        <tr>
-            <td><?php echo $contacto['ind']; ?></td>
-            <td><?php echo $contacto['nombre']; ?></td>
-            <td><?php echo $contacto['numero']; ?></td>
-            <td><?php echo $contacto['correo']; ?></td>
-            <td>
-            <a href="editar.php?ind=<?php echo $contacto['ind']; ?>">Editar</a>
-            <a href="eliminar.php?ind=<?php echo $contacto['ind']; ?>">Eliminar</a>
-        </td>
-            
-            
-            
-        </tr>
-        <?php endforeach; ?>
-    </table>
+    <?php if (empty($contactos)): ?>
+        <p>No hay contactos registrados.</p>
+    <?php else: ?>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Correo</th>           
+                <th></th>
+            </tr>
+            <?php foreach ($contactos as $contacto): ?>
+                <tr>
+                    <td><?php echo $contacto['ind']; ?></td>
+                    <td><?php echo $contacto['nombre']; ?></td>
+                    <td><?php echo $contacto['numero']; ?></td>
+                    <td><?php echo $contacto['correo']; ?></td>
+                    <td>
+                        <a href="editar.php?ind=<?php echo $contacto['ind']; ?>">Editar</a>
+                        <a href="eliminar.php?ind=<?php echo $contacto['ind']; ?>">Eliminar</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
 
     <br/>
     <a href="crearcontacto.php">Agregar nuevo contacto</a> 
     <br>
-    <a href="cerrar.php"> cerrar session</a>
+    <a href="cerrar.php">Cerrar sesión</a>
     <br>
-    <a href="bloquear.php">bloquear la session</a>
-
-    
-    
-
-
+    <a href="bloquear.php">Bloquear la sesión</a>
 </body>
-
 </html>

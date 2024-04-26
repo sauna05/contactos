@@ -4,15 +4,17 @@ include('conexion.php');
 
 session_start();
 
-//validar que se envie la informacion por el metodo post mediante el protocolo http
-if($_SERVER['REQUEST_METHOD']=="POST"){
-    $correo=$_POST["correo"];
-    $contrasenia=$_POST["contrasenia"];
+$mensaje = ''; // Variable para almacenar los mensajes
+
+//validar que se envíe la información por el método POST mediante el protocolo HTTP
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $correo = $_POST["correo"];
+    $contrasenia = $_POST["contrasenia"];
     
-    $sql="SELECT id FROM usuarios WHERE correo = :correo AND contrasenia = :contrasenia";
-    $stm=$conexion->prepare($sql);
-    $stm->bindParam(':correo',$correo);
-    $stm->bindParam(':contrasenia',$contrasenia);
+    $sql = "SELECT id FROM usuarios WHERE correo = :correo AND contrasenia = :contrasenia";
+    $stm = $conexion->prepare($sql);
+    $stm->bindParam(':correo', $correo);
+    $stm->bindParam(':contrasenia', $contrasenia);
     /*Validar para que no se repitan los usuarios  */
     $stm->execute();
     $usuario = $stm->fetch(PDO::FETCH_ASSOC);
@@ -23,8 +25,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         exit;
     
     } else {
-        echo "Correo electrónico o contraseña incorrectos. Si no estás registrado, <a href='crear_usuario.php'>!Registrate aqui¡</a>";
-
+        $mensaje = "Correo electrónico o contraseña incorrectos. Si no estás registrado, <a href='crear_usuario.php'>¡Regístrate aquí!</a>";
     }
 }
 ?>
@@ -77,7 +78,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             color: white;
             font-style: normal;
         }
-       
+
+        .mensaje {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -89,6 +94,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         <input type="password" name="contrasenia" placeholder="Ingrese su contraseña" required>
         <input type="submit" value="Iniciar sesión">
         <a href="crear_usuario.php">¿No tienes una cuenta?</a>
+        <div class="mensaje"><?php echo $mensaje; ?></div> <!-- Mostrar mensaje de error aquí -->
     </form>
 </body>
 </html>

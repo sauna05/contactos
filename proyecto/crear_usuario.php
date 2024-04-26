@@ -6,30 +6,31 @@
     <title>Registro de usuarios</title>
     <style>
         body {
-            background-color: #f2f2f2; /* Color de fondo */
+            background-color: #f2f2f2;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif; /* Utilizando una fuente legible */
         }
 
         form {
-            background-color: white;
-            padding: 20px;
+            background-color: #ffffff;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Tamaño del formulario */
-            max-width: 400px; /* Tamaño máximo del formulario */
+            width: 90%;
+            max-width: 400px;
         }
 
         label, input, a {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         input[type="submit"] {
-            background-color: #007bff; /* Color del botón */
+            background-color: #007bff;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -38,12 +39,27 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3; /* Color del botón al pasar el cursor */
+            background-color: #0056b3;
         }
 
         a {
-            color: blue;
-            font-style: normal;
+            color: #007bff;
+            text-decoration: none; /* Quitando el subrayado de los enlaces */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Subrayando el enlace al pasar el cursor */
+        }
+
+        /* Estilo para los campos de entrada */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Asegurando que el padding no afecte el ancho total */
         }
     </style>
 </head>
