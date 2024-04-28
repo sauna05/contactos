@@ -5,6 +5,8 @@ $nombre = $_POST["nombre"];
 $numero = $_POST["numero"];
 $correo = $_POST["correo"];
 $contrasenia = $_POST["contrasenia"];
+//encriptar la contraseña
+$contrasenia_encriptada = password_hash($contrasenia, PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO usuarios (nombre, numero, correo, contrasenia) VALUES (:nombre, :numero, :correo, :contrasenia)";
 $stm = $conexion->prepare($sql);
@@ -12,7 +14,7 @@ $stm = $conexion->prepare($sql);
 $stm->bindParam(':nombre', $nombre);
 $stm->bindParam(':numero', $numero);
 $stm->bindParam(':correo', $correo);
-$stm->bindParam(':contrasenia', $contrasenia);
+$stm->bindParam(':contrasenia', $contrasenia_encriptada);
 
 
 $stmvalidar="SELECT COUNT(*) as count FROM usuarios WHERE correo = :correo";
