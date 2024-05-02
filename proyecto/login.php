@@ -109,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <input type="password" name="contrasenia" placeholder="Ingrese su contraseña" required>
         <input type="submit" value="Iniciar sesión">
         <a href="crear_usuario.php">¿No tienes una cuenta?</a>
-        <a href="Olvide mi contraseña">olvidecontra.php</a>
+        
         <div class="mensaje"><?php echo $mensaje; ?></div> <!-- Mostrar mensaje de error aquí -->
     </form>
 </body>

@@ -7,6 +7,7 @@ if(!isset($_SESSION['id_usuario'])){
     exit();
 }
 
+
 // Almacenar el ID de usuario de la tabla contactos en una variable antes de destruir la sesión
 $id_usuario = $_SESSION['id_usuario'];
 
@@ -16,10 +17,10 @@ if(isset($id_usuario)){
     setcookie('id', $id_usuario, time() + 20000);
 }
 
-// Destruir la sesión actual
+
 session_destroy();
 
 // Redirigir a la página de desbloqueo
 header('Location: desbloquear.php');
 exit();
-?>
+

@@ -66,16 +66,61 @@ $conexion = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Editar Contacto</h1>
     <form method="POST">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" value="<?php echo $contacto['nombre']; ?>"><br>
-        <label for="numero">Teléfono:</label><br>
-        <input type="text" id="numero" name="numero" value="<?php echo $contacto['numero']; ?>"><br>
-        <label for="correo">Correo:</label><br>
-        <input type="email" id="correo" name="correo" value="<?php echo $contacto['correo']; ?>"><br><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="<?php echo $contacto['nombre']; ?>">
+        <label for="numero">Teléfono:</label>
+        <input type="text" id="numero" name="numero" value="<?php echo $contacto['numero']; ?>">
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" value="<?php echo $contacto['correo']; ?>">
         <input type="submit" value="Guardar Cambios">
     </form>
 </body>
