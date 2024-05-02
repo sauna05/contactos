@@ -12,8 +12,8 @@ if(!isset($_SESSION['id_usuario'])){
 $id_usuario = $_SESSION['id_usuario'];
 
 // Verificar si se ha proporcionado un ID de contacto válido
-if(isset($_GET['ind'])) {
-    $ind = $_GET['ind'];
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
 } else {
     // Redirigir si no se proporciona un ID válido
     header('Location: formulario.php');
@@ -21,10 +21,10 @@ if(isset($_GET['ind'])) {
 }
 
 // Consultar el contacto específico para el usuario actual
-$sql = "SELECT * FROM contactos WHERE id_usuario = :id_usuario AND ind = :ind";
+$sql = "SELECT * FROM contactos WHERE id_usuario = :id_usuario AND id = :id";
 $stmt = $conexion->prepare($sql);
 $stmt->bindParam(':id_usuario', $id_usuario);
-$stmt->bindParam(':ind', $ind);
+$stmt->bindParam(':id', $id);
 $stmt->execute();
 $contacto = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -43,12 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
 
     // Actualizar el contacto en la base de datos
-    $sql_update = "UPDATE contactos SET nombre = :nombre, numero = :numero, correo = :correo WHERE ind = :ind";
+    $sql_update = "UPDATE contactos SET nombre = :nombre, numero = :numero, correo = :correo WHERE id = :id";
     $stmt_update = $conexion->prepare($sql_update);
     $stmt_update->bindParam(':nombre', $nombre);
     $stmt_update->bindParam(':numero', $numero);
     $stmt_update->bindParam(':correo', $correo);
-    $stmt_update->bindParam(':ind', $ind);
+    $stmt_update->bindParam(':id', $id);
     $stmt_update->execute();
 
     // Redirigir de vuelta a la lista de contactos después de la edición

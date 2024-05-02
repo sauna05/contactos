@@ -1,6 +1,10 @@
 <?php
 include_once("conexion.php");
 
+if(!isset($_SESSION['id_usuario'])){
+    header('Location: login.php');
+    exit();
+}
 
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

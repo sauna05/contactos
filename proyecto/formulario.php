@@ -106,13 +106,13 @@ $conexion = null;
                 </tr>
                 <?php foreach ($contactos as $contacto): ?>
                     <tr>
-                        <td><?php echo $contacto['ind']; ?></td>
+                        <td><?php echo $contacto['id']; ?></td>
                         <td><?php echo $contacto['nombre']; ?></td>
                         <td><?php echo $contacto['numero']; ?></td>
                         <td><?php echo $contacto['correo']; ?></td>
                         <td>
-                            <a href="editar.php?ind=<?php echo $contacto['ind']; ?>">Editar</a>
-                            <a href="eliminar.php?ind=<?php echo $contacto['ind']; ?>">Eliminar</a>
+                            <a href="editar.php?id=<?php echo $contacto['id']; ?>">Editar</a>
+                            <a href="eliminar.php?id=<?php echo $contacto['id']; ?>">Eliminar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
