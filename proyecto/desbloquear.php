@@ -1,15 +1,13 @@
 <?php
+session_start();
 include_once("conexion.php");
 
-if(!isset($_SESSION['id_usuario'])){
-    header('Location: login.php');
-    exit();
-}
+
 
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consultar el usuario usando el ID almacenado en la cookie
-    $sql = "SELECT * FROM usuarios WHERE id = :id";
+    $sql = "SELECT  * FROM usuarios WHERE id = :id";
     $stmt = $conexion->prepare($sql);
     $stmt->bindParam(':id', $_COOKIE["id"]);
     $stmt->execute();
@@ -18,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la contraseña ingresada coincide con la del usuario
     if($usuarioExtraido && password_verify($_POST["contrasenia"], $usuarioExtraido["contrasenia"])){
         // Iniciar una nueva sesión y redirigir a la página de formulario
-        session_start();
+       
         $_SESSION["id_usuario"] = $_COOKIE["id"];
         header('location: formulario.php');
         exit();
@@ -93,7 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container">
-        <h2>Desbloquear la sesión</h2>
+    
+        <h5>Desbloquear la sesión</h5>
         <form method="POST">
             <label for="contrasenia">Ingrese su contraseña</label>
             <input type="password" id="contrasenia" name="contrasenia" placeholder="Contraseña" required>

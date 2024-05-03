@@ -103,7 +103,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 <body>
     <form method="post"> 
-        <label for="correo">Usuario</label>
+        <label for="correo">Correo electrónico</label>
         <input type="text" name="correo" placeholder="Ingrese su correo" required>
         <label for="contrasenia">Contraseña</label>
         <input type="password" name="contrasenia" placeholder="Ingrese su contraseña" required>
