@@ -16,7 +16,6 @@ if(isset($id_usuario)){
     setcookie('id', $id_usuario, time() + 20000);
 }
 
-// Redirigir a la página de desbloqueo
 header('Location: desbloquear.php');
 
 // Destruir la sesión después de redirigir al usuario
