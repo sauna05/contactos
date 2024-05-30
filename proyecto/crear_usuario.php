@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de usuarios</title>
     <style>
+        
         body {
             background-color: #f2f2f2;
             display: flex;
@@ -64,6 +65,7 @@
     </style>
 </head>
 <body>
+    <h1>h</h1>
     
     <form action="insertUsua.php" method="post">
         <label for="nombre">Nombre:</label>
